@@ -271,7 +271,7 @@ function renderDataTab() {
     `<td>${esc(i.unit)}</td><td class="num">${i.years_with_data}</td><td class="num">${i.last_year}</td></tr>`).join("");
   const latestOverall = Math.max(...meta.indicators.map(i => i.last_year));
   document.getElementById("vintage-line").textContent =
-    `Real data: World Bank World Development Indicators (CC BY-4.0) · snapshot ${meta.download_date} · most series run to ${latestOverall}, some end earlier — see the Data source tab.`;
+    `Real World Bank data — copy saved ${meta.download_date}, so the numbers stay fixed while you learn · most series run to ${latestOverall}, some end earlier (shown honestly as gaps, never guessed) — see the Data source tab.`;
 }
 
 /* ---------- tabs ---------- */

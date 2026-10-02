@@ -109,3 +109,10 @@ td.null{color:#9aa7b5;font-style:italic}
 footer{border-top:1px solid var(--line);padding:20px 14px;text-align:center;color:var(--muted);font-size:13.5px}
 .status-ok{color:var(--brand-dark);font-weight:700}
 @media(prefers-reduced-motion:reduce){.spinner{animation:none}}
+
+.story{border-left:5px solid #1d7a4f}
+.story .kicker{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#1d7a4f;margin:0 0 4px}
+.story h2{margin:2px 0 10px}
+.story-grid h3{margin:2px 0 6px;font-size:15px}
+.story-grid p{margin:0;font-size:14px;color:#334155}
+.story-gap{background:#e8f4ec;border-radius:10px;padding:10px 14px;font-size:14px;margin:12px 0 0}
