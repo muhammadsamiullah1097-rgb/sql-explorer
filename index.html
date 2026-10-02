@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQL Explorer — Real Pakistan Data, Real SQL</title>
+<meta name="description" content="Learn and practice real SQL queries on real World Bank data for Pakistan, India and Bangladesh — right in your browser.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="badge">📊 100% real data · runs fully in your browser</span>
+    <h1>SQL Explorer</h1>
+    <p>Learn SQL by asking real questions about real Pakistan data — population, income, inflation, literacy and more, 1960 to today. No sign-up, no server, nothing fake.</p>
+    <p class="fine" id="vintage-line">Loading data…</p>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Modes">
+  <button role="tab" aria-selected="true"  data-tab="learn"   id="tabbtn-learn">🧭 Learn</button>
+  <button role="tab" aria-selected="false" data-tab="analyst" id="tabbtn-analyst">💻 Analyst</button>
+  <button role="tab" aria-selected="false" data-tab="data"    id="tabbtn-data">📦 Data source</button>
+</nav>
+
+<main>
+  <!-- LEARN MODE -->
+  <section class="tabpane active" id="tab-learn" role="tabpanel" aria-labelledby="tabbtn-learn">
+    <div class="explain">
+      <h2>What is a database table? (30-second version)</h2>
+      <p>Think of a table like an <b>Excel sheet</b>. Each <b>column</b> is a heading (like <i>year</i>, <i>population</i>). Each <b>row</b> is one line of facts. SQL is just the language you use to <b>ask the sheet questions</b>.</p>
+      <div class="kv">
+        <div><b>pakistan</b> — 65 rows (one per year, 1960–2024), 12 columns: population, income, inflation, life expectancy…</div>
+        <div><b>countries</b> — Pakistan, India &amp; Bangladesh side by side, 4 headline numbers per year. Made for comparisons.</div>
+        <div><b>Empty cells (–)</b> mean the World Bank simply has no data for that year. We show the gap honestly instead of guessing.</div>
+      </div>
+    </div>
+    <div id="preset-list"><div class="loading"><div class="spinner"></div>Preparing the database…</div></div>
+  </section>
+
+  <!-- ANALYST MODE -->
+  <section class="tabpane" id="tab-analyst" role="tabpanel" aria-labelledby="tabbtn-analyst">
+    <div class="analyst-grid">
+      <aside class="side">
+        <h3>🗂️ Tables &amp; columns</h3>
+        <div id="schema-list"></div>
+        <h3>🧩 Challenges — try these</h3>
+        <div id="challenge-list"></div>
+      </aside>
+      <div class="editor-card">
+        <label for="sql-input">Write your SQL question here</label>
+        <textarea id="sql-input" spellcheck="false" aria-describedby="editor-tip"></textarea>
+        <p id="editor-tip" style="font-size:13px;color:var(--muted);margin:6px 0 0">Tip: press <b>Ctrl + Enter</b> to run. Only one statement at a time.</p>
+        <div class="editor-actions">
+          <button class="btn" id="run-btn">▶ Run query</button>
+          <button class="btn ghost" id="clear-btn">Clear</button>
+          <button class="btn ghost" id="csv-btn">⬇ Export results as CSV</button>
+        </div>
+        <div id="analyst-output"></div>
+        <h3 style="margin-top:18px">🕘 Your recent queries</h3>
+        <ul class="hist-list" id="hist-list"><li style="cursor:default;color:var(--muted)">Nothing yet — run a query and it will appear here.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA SOURCE -->
+  <section class="tabpane" id="tab-data" role="tabpanel" aria-labelledby="tabbtn-data">
+    <div class="data-card">
+      <h2>📦 Where this data comes from</h2>
+      <dl>
+        <dt>Source</dt><dd>World Bank — <b>World Development Indicators</b> (WDI), the world's most-used development dataset.</dd>
+        <dt>How we got it</dt><dd>Directly from the World Bank's public API — no middlemen, no typing by hand.</dd>
+        <dt>API pattern</dt><dd><code id="api-pattern" style="font-size:12.5px;word-break:break-all"></code></dd>
+        <dt>License</dt><dd><b>CC BY-4.0</b> — free to use with credit to the World Bank.</dd>
+        <dt>Snapshot date</dt><dd id="meta-date">…</dd>
+        <dt>Honest note</dt><dd>Each indicator is measured on its own schedule, so <b>latest available years differ</b> (see table). Empty cells (–) are years the World Bank has no data for — we never fill them in.</dd>
+      </dl>
+    </div>
+    <div class="data-card">
+      <h2>📋 Indicators in this database</h2>
+      <div class="table-scroll"><table>
+        <thead><tr><th>Indicator</th><th>Unit</th><th>Years with data</th><th>Latest year</th></tr></thead>
+        <tbody id="indicator-rows"></tbody>
+      </table></div>
+    </div>
+    <div class="data-card">
+      <h2>🔄 Refreshing the data</h2>
+      <p style="margin:0">Run <code>python3 fetch_data.py</code> in the project folder — it re-downloads everything from the World Bank API and rebuilds <code>data/seed.sql</code>, <code>data/snapshot.json</code> and <code>data/meta.json</code>. Then redeploy. Full details in <code>README.md</code>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>SQL Explorer · Real data: World Bank World Development Indicators (CC BY-4.0) · Snapshot <span id="foot-date">…</span><br>
+  Runs entirely in your browser with SQLite (sql.js) — your queries never leave your device.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

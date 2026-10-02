@@ -1,0 +1,164 @@
+{
+  "source": "World Bank World Development Indicators (WDI)",
+  "api": "https://api.worldbank.org/v2",
+  "api_pattern": "https://api.worldbank.org/v2/country/{COUNTRY}/indicator/{CODE}?format=json&per_page=100&date=1960:2024",
+  "license": "CC BY-4.0 (World Bank data terms of use)",
+  "download_date": "2026-10-02",
+  "note": "Series have different coverage: latest available year varies per indicator (shown honestly in the app).",
+  "tables": {
+    "pakistan": {
+      "rows": 65,
+      "columns": [
+        "year",
+        "population",
+        "gdp",
+        "gdp_per_capita",
+        "inflation_pct",
+        "life_expectancy",
+        "literacy_pct",
+        "unemployment_pct",
+        "exports_pct_gdp",
+        "imports_pct_gdp",
+        "poverty_pct",
+        "remittances_pct_gdp",
+        "internet_pct"
+      ],
+      "description": "Pakistan, 12 indicators, 1960-2024 (NULL where the World Bank has no data)"
+    },
+    "countries": {
+      "rows": 195,
+      "columns": [
+        "country_code",
+        "country_name",
+        "year",
+        "population",
+        "gdp",
+        "gdp_per_capita",
+        "life_expectancy"
+      ],
+      "description": "Pakistan, India, Bangladesh \u2014 4 headline indicators, for JOIN comparisons"
+    }
+  },
+  "indicators": [
+    {
+      "code": "SP.POP.TOTL",
+      "column": "population",
+      "name": "Total population",
+      "unit": "people",
+      "country": "PAK",
+      "years_with_data": 65,
+      "first_year": 1960,
+      "last_year": 2024
+    },
+    {
+      "code": "NY.GDP.MKTP.CD",
+      "column": "gdp",
+      "name": "GDP (current US$)",
+      "unit": "US$",
+      "country": "PAK",
+      "years_with_data": 65,
+      "first_year": 1960,
+      "last_year": 2024
+    },
+    {
+      "code": "NY.GDP.PCAP.CD",
+      "column": "gdp_per_capita",
+      "name": "GDP per capita (current US$)",
+      "unit": "US$",
+      "country": "PAK",
+      "years_with_data": 65,
+      "first_year": 1960,
+      "last_year": 2024
+    },
+    {
+      "code": "FP.CPI.TOTL.ZG",
+      "column": "inflation_pct",
+      "name": "Inflation, consumer prices (annual %)",
+      "unit": "%",
+      "country": "PAK",
+      "years_with_data": 65,
+      "first_year": 1960,
+      "last_year": 2024
+    },
+    {
+      "code": "SP.DYN.LE00.IN",
+      "column": "life_expectancy",
+      "name": "Life expectancy at birth (years)",
+      "unit": "years",
+      "country": "PAK",
+      "years_with_data": 65,
+      "first_year": 1960,
+      "last_year": 2024
+    },
+    {
+      "code": "SE.ADT.LITR.ZS",
+      "column": "literacy_pct",
+      "name": "Adult literacy rate (% of people 15+)",
+      "unit": "%",
+      "country": "PAK",
+      "years_with_data": 16,
+      "first_year": 1981,
+      "last_year": 2021
+    },
+    {
+      "code": "SL.UEM.TOTL.NE.ZS",
+      "column": "unemployment_pct",
+      "name": "Unemployment, total (% of labor force)",
+      "unit": "%",
+      "country": "PAK",
+      "years_with_data": 50,
+      "first_year": 1971,
+      "last_year": 2021
+    },
+    {
+      "code": "NE.EXP.GNFS.ZS",
+      "column": "exports_pct_gdp",
+      "name": "Exports of goods and services (% of GDP)",
+      "unit": "%",
+      "country": "PAK",
+      "years_with_data": 65,
+      "first_year": 1960,
+      "last_year": 2024
+    },
+    {
+      "code": "NE.IMP.GNFS.ZS",
+      "column": "imports_pct_gdp",
+      "name": "Imports of goods and services (% of GDP)",
+      "unit": "%",
+      "country": "PAK",
+      "years_with_data": 65,
+      "first_year": 1960,
+      "last_year": 2024
+    },
+    {
+      "code": "SI.POV.DDAY",
+      "column": "poverty_pct",
+      "name": "Poverty headcount ratio at $2.15/day (% of population)",
+      "unit": "%",
+      "country": "PAK",
+      "years_with_data": 14,
+      "first_year": 1987,
+      "last_year": 2024
+    },
+    {
+      "code": "BX.TRF.PWKR.DT.GD.ZS",
+      "column": "remittances_pct_gdp",
+      "name": "Personal remittances received (% of GDP)",
+      "unit": "%",
+      "country": "PAK",
+      "years_with_data": 49,
+      "first_year": 1976,
+      "last_year": 2024
+    },
+    {
+      "code": "IT.NET.USER.ZS",
+      "column": "internet_pct",
+      "name": "Individuals using the Internet (% of population)",
+      "unit": "%",
+      "country": "PAK",
+      "years_with_data": 27,
+      "first_year": 1990,
+      "last_year": 2024
+    }
+  ]
+}
